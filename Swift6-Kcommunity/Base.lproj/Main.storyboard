@@ -258,7 +258,7 @@
         <!--Item 1-->
         <scene sceneID="zS2-EL-ioa">
             <objects>
-                <viewController id="pRz-PO-wC0" sceneMemberID="viewController">
+                <viewController id="pRz-PO-wC0" customClass="SelectRoomViewController" customModule="Swift6_Kcommunity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7tp-V4-ehp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,10 +309,10 @@
             </objects>
             <point key="canvasLocation" x="2773.913043478261" y="-203.57142857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat View Controller-->
         <scene sceneID="UqY-un-iaP">
             <objects>
-                <viewController id="XzH-xE-Af8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XzH-xE-Af8" customClass="ChatViewController" customModule="Swift6_Kcommunity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wqu-u6-sel">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -348,6 +348,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hFj-Nc-qtj"/>
+                    <connections>
+                        <outlet property="messageTextField" destination="S5y-AR-SWT" id="sIH-o4-TQ7"/>
+                        <outlet property="tableView" destination="jpV-W8-xHf" id="rWZ-8G-Xjq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LqM-Vp-lVD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -356,7 +360,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="mcb-7P-eLn">
             <objects>
-                <tabBarController id="WVb-LP-SvY" sceneMemberID="viewController">
+                <tabBarController id="WVb-LP-SvY" customClass="TabBarController" customModule="Swift6_Kcommunity" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="3Kd-qU-j8R"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KqS-cJ-OlN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

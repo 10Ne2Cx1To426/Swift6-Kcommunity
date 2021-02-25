@@ -23,7 +23,6 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         super.viewDidLoad()
         let checkPermissionModel = PermissionCheckModel()
         checkPermissionModel.showCheckPermission()
-        
         sendDBModel.sendProfileOKDelegate = self
     }
     @IBAction func register(_ sender: Any) {
