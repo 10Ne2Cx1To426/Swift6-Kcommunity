@@ -70,7 +70,7 @@
                         <outlet property="emailTextField" destination="0dV-Jz-qZJ" id="8O7-sG-tBd"/>
                         <outlet property="passwordTextField" destination="kiD-mU-PfE" id="LbH-Hb-aSy"/>
                         <outlet property="profileImageView" destination="hkM-g6-ZH7" id="Xfr-i7-00y"/>
-                        <segue destination="WVb-LP-SvY" kind="show" id="drB-mn-DTE"/>
+                        <segue destination="WVb-LP-SvY" kind="show" identifier="next" id="drB-mn-DTE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

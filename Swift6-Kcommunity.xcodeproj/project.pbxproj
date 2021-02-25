@@ -18,6 +18,7 @@
 		B211A2A125E7F3BD0015F4ED /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2A025E7F3BD0015F4ED /* RegisterViewController.swift */; };
 		B211A2A525E7F3D70015F4ED /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2A425E7F3D70015F4ED /* Permission.swift */; };
 		B211A2A825E7FAAA0015F4ED /* SendDBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2A725E7FAAA0015F4ED /* SendDBModel.swift */; };
+		B211A2AB25E8035F0015F4ED /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2AA25E8035F0015F4ED /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		B211A2A025E7F3BD0015F4ED /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B211A2A425E7F3D70015F4ED /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		B211A2A725E7FAAA0015F4ED /* SendDBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendDBModel.swift; sourceTree = "<group>"; };
+		B211A2AA25E8035F0015F4ED /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				B211A26D25E764910015F4ED /* ViewController.swift */,
 				B211A2A025E7F3BD0015F4ED /* RegisterViewController.swift */,
+				B211A2AA25E8035F0015F4ED /* TabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				B211A26A25E764910015F4ED /* AppDelegate.swift in Sources */,
 				B211A26C25E764910015F4ED /* SceneDelegate.swift in Sources */,
 				B211A2A825E7FAAA0015F4ED /* SendDBModel.swift in Sources */,
+				B211A2AB25E8035F0015F4ED /* TabBarController.swift in Sources */,
 				B211A2A125E7F3BD0015F4ED /* RegisterViewController.swift in Sources */,
 				B211A2A525E7F3D70015F4ED /* Permission.swift in Sources */,
 			);
