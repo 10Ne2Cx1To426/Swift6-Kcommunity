@@ -1,0 +1,6 @@
+framework module Pods_Swift6_Kcommunity {
+  umbrella header "Pods-Swift6-Kcommunity-umbrella.h"
+
+  export *
+  module * { export * }
+}

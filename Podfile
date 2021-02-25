@@ -7,4 +7,14 @@ target 'Swift6-Kcommunity' do
 
   # Pods for Swift6-Kcommunity
 
+  pod 'Firebase'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Firestore'
+  pod 'SDWebImage'
+  pod 'ViewAnimator'
+  pod 'ActiveLabel'
+  pod 'IQKeyboardManagerSwift'
+
+
 end
