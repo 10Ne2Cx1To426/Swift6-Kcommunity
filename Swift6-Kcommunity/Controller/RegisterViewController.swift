@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SendProfileOKDelegate {
+class RegisterViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, SendProfileOKDelegate, UITextFieldDelegate {
     
 
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,6 +24,12 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         let checkPermissionModel = PermissionCheckModel()
         checkPermissionModel.showCheckPermission()
         sendDBModel.sendProfileOKDelegate = self
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
     }
     @IBAction func register(_ sender: Any) {
         if emailTextField.text?.isEmpty != true && passwordTextField.text?.isEmpty != true, let image = profileImageView.image{
@@ -93,11 +99,6 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         alertController.addAction(action2)
         alertController.addAction(action3)
         self.present(alertController, animated: true, completion: nil)
-    }
-    //画面がタッチされたらキーボードを閉じる
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
     }
     
     /*

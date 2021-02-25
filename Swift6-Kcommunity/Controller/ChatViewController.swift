@@ -96,8 +96,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         } else {
             cell.leftImageView.isHidden = false
             cell.rightImageView.isHidden = true
-            cell.leftImageView.sd_setImage(with: URL(string: profileImageString), completed: nil)
-            cell.rightImageView.sd_setImage(with: URL(string: messages[indexPath.row].imageString), completed: nil)
+            cell.rightImageView.sd_setImage(with: URL(string: profileImageString), completed: nil)
+            cell.leftImageView.sd_setImage(with: URL(string: messages[indexPath.row].imageString), completed: nil)
             
             cell.backView.backgroundColor = .orange
             cell.label.textColor = .white
