@@ -18,6 +18,8 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     var roomName = String()
     var profileImageString = String()
+    
+    var messages:[Message] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +31,52 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
         self.navigationItem.title = roomName
     }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+    //firestoreに保存されている値を取ってくる
+    func loadMessages(roomName:String) {
+        db.collection(roomName).order(by: "postDate").addSnapshotListener { (snapShot, error) in
+            self.messages = []
+            if error != nil {
+                print(error.debugDescription)
+                return
+            }
+            if let snapShotDoc = snapShot?.documents {
+                for doc in snapShotDoc {
+                    let data = doc.data()
+                    if let sender = data["sender"] as? String, let body = data["body"] as? String, let imageString = data["imageString"] as? String {
+                        let newMessage = Message(sender: sender, body: body, imageString: imageString)
+                        self.messages.append(newMessage)
+                        
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                            //送信したら画面が一番したまで自動的に表示させるようにする
+                            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                            self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                        }
+                    }
+                }
+            }
+        }
     }
-    
+    @IBAction func send(_ sender: Any) {
+        if let messageBody = messageTextField.text, let sender = Auth.auth().currentUser?.email {
+            db.collection(roomName).addDocument(data: ["sender":sender, "body":messageBody, "imageString":profileImageString, "postDate":Date().timeIntervalSince1970]) { (error) in
+                if error != nil {
+                    print(error.debugDescription)
+                    return
+                }
+                DispatchQueue.main.async {
+                self.messageTextField.text = ""
+                self.messageTextField.resignFirstResponder()
+                }
+            }
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         <#code#>
     }

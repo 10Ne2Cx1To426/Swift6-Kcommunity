@@ -342,6 +342,9 @@
                                 <rect key="frame" x="332" y="754" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="send"/>
+                                <connections>
+                                    <action selector="send:" destination="XzH-xE-Af8" eventType="touchUpInside" id="6Jm-JK-4SO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XMA-ON-peY"/>
