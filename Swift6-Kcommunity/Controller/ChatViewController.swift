@@ -26,10 +26,13 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "Cell")
+        
         if UserDefaults.standard.object(forKey: "userImage") != nil {
             profileImageString = UserDefaults.standard.object(forKey: "userImage") as! String
         }
         self.navigationItem.title = roomName
+        loadMessages(roomName: roomName)
     }
     //firestoreに保存されている値を取ってくる
     func loadMessages(roomName:String) {
@@ -78,7 +81,29 @@ class ChatViewController: UIViewController, UITableViewDelegate, UITableViewData
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MessageCell
+        let message = messages[indexPath.row]
+        cell.label.text = message.body
+        
+        if message.sender == Auth.auth().currentUser?.email{
+            cell.leftImageView.isHidden = true
+            cell.rightImageView.isHidden = false
+            cell.rightImageView.sd_setImage(with: URL(string: profileImageString), completed: nil)
+            cell.leftImageView.sd_setImage(with: URL(string: messages[indexPath.row].imageString), completed: nil)
+            
+            cell.backView.backgroundColor = .systemTeal
+            cell.label.textColor = .white
+        } else {
+            cell.leftImageView.isHidden = false
+            cell.rightImageView.isHidden = true
+            cell.leftImageView.sd_setImage(with: URL(string: profileImageString), completed: nil)
+            cell.rightImageView.sd_setImage(with: URL(string: messages[indexPath.row].imageString), completed: nil)
+            
+            cell.backView.backgroundColor = .orange
+            cell.label.textColor = .white
+        }
+        
+        return cell
     }
     
 
