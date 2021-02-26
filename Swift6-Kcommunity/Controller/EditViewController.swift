@@ -16,8 +16,6 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var detailTextField: UITextView!
     
-    var roomNumber = Int()
-    
     var urlString = String()
     
     override func viewDidLoad() {
