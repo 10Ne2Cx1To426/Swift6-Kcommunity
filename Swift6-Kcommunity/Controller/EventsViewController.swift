@@ -45,6 +45,10 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         detailText.text = "\(loadDBModel.datasets[indexPath.row].detailString)"
         detailText.handleHashtagTap { (hashTag) in
             print(hashTag)
+            
+            let hashVC = self.storyboard?.instantiateViewController(identifier: "hashVC") as! hashTagViewController
+            hashVC.hashTag = hashTag
+            self.navigationController?.pushViewController(hashVC, animated: true)
         }
         return cell
     }

@@ -40,7 +40,6 @@ class SendDBModel {
         self.image = image
     }
     func sendData() {
-        
         let imageRef = Storage.storage().reference().child("Images").child("\(UUID().uuidString + String(Date().timeIntervalSince1970)).jpg")
         
         imageRef.putData(image, metadata: nil) { (metadata, error) in
@@ -82,5 +81,23 @@ class SendDBModel {
             }
         }
     }
-    
+    func sendHashTag(hashTag:String){
+        
+        let imageRef = Storage.storage().reference().child(hashTag).child("\(UUID().uuidString +  String(Date().timeIntervalSince1970)).jpg")
+        imageRef.putData(image, metadata: nil, completion: { (metadata, error) in
+            
+            if let error = error {
+                print(error)
+                return
+            }
+            imageRef.downloadURL(completion: { (url, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                self.db.collection(hashTag).document().setData(
+                    ["userID":self.userID as Any, "userName":self.userName as Any, "userImageString":self.userImageString as Any, "eventName":self.eventName as Any, "eventDate":self.eventDate as Any, "detailString":self.detailString as Any, "image":url?.absoluteString as Any, "postDate":Date().timeIntervalSince1970])
+            })
+        })
+    }
 }
