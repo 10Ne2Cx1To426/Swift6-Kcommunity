@@ -6,14 +6,47 @@
 //
 
 import UIKit
+import Firebase
+import ActiveLabel
+import SDWebImage
 
-class EventsViewController: UIViewController {
-
+class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
+    
+    var loadDBModel = LoadModel()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+        
+        loadDBModel.loadContents()
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return loadDBModel.datasets.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let image = cell.contentView.viewWithTag(1) as! UIImageView
+        image.sd_setImage(with: URL(string: loadDBModel.datasets[indexPath.row].image), completed: nil)
+        let eventName = cell.contentView.viewWithTag(2) as! UILabel
+        eventName.text = loadDBModel.datasets[indexPath.row].eventName
+        let detailText = cell.contentView.viewWithTag(3) as! ActiveLabel
+        detailText.enabledTypes = [.hashtag]
+        detailText.text = "\(loadDBModel.datasets[indexPath.row].detailString)"
+        detailText.handleHashtagTap { (hashTag) in
+            print(hashTag)
+        }
+        return cell
     }
     
 

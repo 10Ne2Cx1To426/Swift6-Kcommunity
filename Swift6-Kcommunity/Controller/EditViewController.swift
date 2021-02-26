@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
 
 class EditViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
@@ -14,7 +16,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var detailTextField: UITextView!
     
-    var sendDBModel = SendDBModel()
+    var roomNumber = Int()
+    
     var urlString = String()
     
     override func viewDidLoad() {
@@ -44,6 +47,9 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if eventTextField.text?.isEmpty != true && dateTextField.text?.isEmpty != true &&
             detailTextField.text.isEmpty != true, let image = imageView.image{
             let passImage = image.jpegData(compressionQuality: 0.01)
+            let sendDBModel = SendDBModel(userID: Auth.auth().currentUser!.uid, userName: UserDefaults.standard.object(forKey: "userName") as! String, userImageString: UserDefaults.standard.object(forKey: "userImage") as! String, eventName: eventTextField.text!, eventDate: dateTextField.text!, detailString: detailTextField.text!, image: passImage!)
+            sendDBModel.sendData()
+            self.navigationController?.popViewController(animated: true)
         }
     }
     
