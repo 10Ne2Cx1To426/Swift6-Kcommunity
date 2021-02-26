@@ -23,8 +23,13 @@ class RoomViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.isHidden = true
+        self.navigationController?.isNavigationBarHidden = true
         
+        tableView.isHidden = true
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tableView.isHidden = false
         let animation = [AnimationType.vector(CGVector(dx: 0, dy: 30))]
         UIView.animate(views: tableView.visibleCells, animations: animation, completion: nil)
     }

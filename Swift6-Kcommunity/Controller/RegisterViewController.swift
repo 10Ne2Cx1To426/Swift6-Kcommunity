@@ -45,12 +45,12 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                 //ユーザー名をアプリ内に保存
                 UserDefaults.standard.setValue(self.userNameTextField.text, forKey: "userName")
                 //画面遷移
-                let tabVC = self.storyboard?.instantiateViewController(identifier: "tabVC") as! TabBarController
+                let roomVC = self.storyboard?.instantiateViewController(identifier: "roomVC") as! RoomViewController
                 //プロフィールイメージの保存
                 let data = image.jpegData(compressionQuality: 0.01)
                 self.sendDBModel.sendProfileImageData(data: data!)
                 //画面遷移
-                self.navigationController?.pushViewController(tabVC, animated: true)
+                self.navigationController?.pushViewController(roomVC, animated: true)
             }
         }
     }
