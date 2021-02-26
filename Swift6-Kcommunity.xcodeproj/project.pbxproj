@@ -10,7 +10,6 @@
 		A9D5155E97427035CFE7AC2A /* Pods_Swift6_Kcommunity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82868203FAD4FE213FE6AAB5 /* Pods_Swift6_Kcommunity.framework */; };
 		B211A26A25E764910015F4ED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A26925E764910015F4ED /* AppDelegate.swift */; };
 		B211A26C25E764910015F4ED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A26B25E764910015F4ED /* SceneDelegate.swift */; };
-		B211A26E25E764910015F4ED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A26D25E764910015F4ED /* ViewController.swift */; };
 		B211A27125E764910015F4ED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B211A26F25E764910015F4ED /* Main.storyboard */; };
 		B211A27325E764940015F4ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B211A27225E764940015F4ED /* Assets.xcassets */; };
 		B211A27625E764940015F4ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B211A27425E764940015F4ED /* LaunchScreen.storyboard */; };
@@ -27,6 +26,7 @@
 		B211A2C425E81DFA0015F4ED /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2C325E81DFA0015F4ED /* RoomModel.swift */; };
 		B211A2C725E8726C0015F4ED /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2C625E8726C0015F4ED /* EditViewController.swift */; };
 		B211A2CA25E872950015F4ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2C925E872950015F4ED /* DetailViewController.swift */; };
+		B211A2CE25E880F90015F4ED /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2CD25E880F90015F4ED /* EventsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,7 +36,6 @@
 		B211A26625E764910015F4ED /* Swift6-Kcommunity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift6-Kcommunity.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B211A26925E764910015F4ED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B211A26B25E764910015F4ED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B211A26D25E764910015F4ED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B211A27025E764910015F4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B211A27225E764940015F4ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B211A27525E764940015F4ED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -54,6 +53,7 @@
 		B211A2C325E81DFA0015F4ED /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
 		B211A2C625E8726C0015F4ED /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		B211A2C925E872950015F4ED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B211A2CD25E880F90015F4ED /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,13 +124,13 @@
 		B211A29D25E7F3840015F4ED /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B211A26D25E764910015F4ED /* ViewController.swift */,
 				B211A2A025E7F3BD0015F4ED /* RegisterViewController.swift */,
 				B211A2AA25E8035F0015F4ED /* TabBarController.swift */,
 				B211A2AD25E804000015F4ED /* ChatViewController.swift */,
 				B211A2C025E819590015F4ED /* RoomViewController.swift */,
 				B211A2C625E8726C0015F4ED /* EditViewController.swift */,
 				B211A2C925E872950015F4ED /* DetailViewController.swift */,
+				B211A2CD25E880F90015F4ED /* EventsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,7 +264,6 @@
 			files = (
 				B211A2C725E8726C0015F4ED /* EditViewController.swift in Sources */,
 				B211A2B825E810C40015F4ED /* MessageCell.swift in Sources */,
-				B211A26E25E764910015F4ED /* ViewController.swift in Sources */,
 				B211A26A25E764910015F4ED /* AppDelegate.swift in Sources */,
 				B211A2AE25E804000015F4ED /* ChatViewController.swift in Sources */,
 				B211A26C25E764910015F4ED /* SceneDelegate.swift in Sources */,
@@ -274,6 +273,7 @@
 				B211A2C425E81DFA0015F4ED /* RoomModel.swift in Sources */,
 				B211A2AB25E8035F0015F4ED /* TabBarController.swift in Sources */,
 				B211A2A125E7F3BD0015F4ED /* RegisterViewController.swift in Sources */,
+				B211A2CE25E880F90015F4ED /* EventsViewController.swift in Sources */,
 				B211A2A525E7F3D70015F4ED /* Permission.swift in Sources */,
 				B211A2CA25E872950015F4ED /* DetailViewController.swift in Sources */,
 			);

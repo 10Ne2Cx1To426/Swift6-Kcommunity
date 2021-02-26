@@ -93,7 +93,7 @@
         <!--Item 2-->
         <scene sceneID="yIx-Vg-bZO">
             <objects>
-                <viewController id="bZB-Hr-ia0" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bZB-Hr-ia0" customClass="EventsViewController" customModule="Swift6_Kcommunity" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cSx-HF-Kro">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,6 +219,9 @@
                                 <state key="normal" title="イベントを作成する">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="send:" destination="wIr-OE-FFf" eventType="touchUpInside" id="DEo-SS-ow0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="イベントの詳細を記入してください" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lbN-wM-fFQ">
                                 <rect key="frame" x="0.0" y="462" width="414" height="53"/>
@@ -231,9 +234,19 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lMh-0G-1fD"/>
                     </view>
+                    <connections>
+                        <outlet property="dateTextField" destination="6cc-g4-j3Y" id="TrE-vh-KK2"/>
+                        <outlet property="detailTextField" destination="iE7-qy-ZQ6" id="vH4-K0-9WX"/>
+                        <outlet property="eventTextField" destination="uS4-1L-Mjm" id="Y9a-eH-MFJ"/>
+                        <outlet property="imageView" destination="aAM-fM-BUN" id="ffP-6X-s4F"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rdr-6B-TQX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="Elx-p1-YPB"/>
+                <tapGestureRecognizer id="Elx-p1-YPB">
+                    <connections>
+                        <action selector="openCamera:" destination="wIr-OE-FFf" id="PFa-zy-jBw"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2774" y="1299"/>
         </scene>
