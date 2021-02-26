@@ -45,22 +45,23 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     //送信
     @IBAction func send(_ sender: Any) {
-        if eventTextField.text?.isEmpty != true && dateTextField.text?.isEmpty != true &&
-            detailTextField.text.isEmpty != true, let image = imageView.image{
-            searchHashTag()
-            let passImage = image.jpegData(compressionQuality: 0.01)
-            let sendDBModel = SendDBModel(
-                userID: Auth.auth().currentUser!.uid,
-                userName: UserDefaults.standard.object(forKey: "userName") as! String,
-                userImageString: UserDefaults.standard.object(forKey: "userImage") as! String,
-                eventName: eventTextField.text!,
-                eventDate: dateTextField.text!,
-                detailString: detailTextField.text!,
-                image: passImage!
-            )
-            sendDBModel.sendData()
-            self.navigationController?.popViewController(animated: true)
+        if eventTextField.text?.isEmpty == true && dateTextField.text?.isEmpty == true &&
+            detailTextField.text.isEmpty == true {
+            return
         }
+        let image = imageView.image
+        searchHashTag()
+        let passImage = image!.jpegData(compressionQuality: 0.01)
+        let sendDBModel = SendDBModel(
+            userID: Auth.auth().currentUser!.uid,
+            userName: UserDefaults.standard.object(forKey: "userName") as! String,
+            userImageString: UserDefaults.standard.object(forKey: "userImage") as! String,
+            eventName: eventTextField.text!,
+            eventDate: dateTextField.text!,
+            detailString: detailTextField.text!,
+            image: passImage!)
+        sendDBModel.sendData()
+        self.navigationController?.popViewController(animated: true)
     }
     func searchHashTag(){
         let hashTagText = detailTextField.text as NSString?
