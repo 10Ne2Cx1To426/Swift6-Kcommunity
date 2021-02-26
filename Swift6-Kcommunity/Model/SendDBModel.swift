@@ -16,7 +16,19 @@ class SendDBModel {
     
     var sendProfileOKDelegate:SendProfileOKDelegate?
     
+    var userID = String()
+    var userName = String()
+    var userImageString = String()
+    var eventName = String()
+    var eventDate = String()
+    var detailString = String()
+    var image = Data()
+    
+    
     init() {
+    }
+    init(userID:String, userName:String, userImageString:String, eventName:String, eventDate:String, detailString:String, image:Data ) {
+        <#statements#>
     }
     
     func sendProfileImageData(data:Data) {

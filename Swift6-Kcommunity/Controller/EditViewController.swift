@@ -29,16 +29,25 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         dateTextField.resignFirstResponder()
         detailTextField.resignFirstResponder()
     }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        eventTextField.resignFirstResponder()
+        dateTextField.resignFirstResponder()
+        detailTextField.resignFirstResponder()
+        return true
+    }
     
+    @IBAction func tapImageView(_ sender: Any) {
+        showAlert()
+    }
+    //送信
     @IBAction func send(_ sender: Any) {
         if eventTextField.text?.isEmpty != true && dateTextField.text?.isEmpty != true &&
             detailTextField.text.isEmpty != true, let image = imageView.image{
-            
+            let passImage = image.jpegData(compressionQuality: 0.01)
         }
     }
-    @IBAction func openCamera(_ sender: Any) {
-        showAlert()
-    }
+    
+    
     func doCamera() {
         let sourceType:UIImagePickerController.SourceType = .camera
         //カメラ利用可能かチェック
