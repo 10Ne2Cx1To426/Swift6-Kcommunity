@@ -15,6 +15,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var userNameTextField: UITextField!
     
     var sendDBModel = SendDBModel()
     var urlString = String()
@@ -26,6 +27,7 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         sendDBModel.sendProfileOKDelegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        userNameTextField.delegate = self
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
@@ -38,8 +40,17 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
                     print(error.debugDescription)
                     return
                 }
-                let data = image.jpegData(compressionQuality: 1.0)
+                let user = result?.user
+                print(user.debugDescription)
+                //ユーザー名をアプリ内に保存
+                UserDefaults.standard.setValue(self.userNameTextField.text, forKey: "userName")
+                //画面遷移
+                let tabVC = self.storyboard?.instantiateViewController(identifier: "tabVC") as! TabBarController
+                //プロフィールイメージの保存
+                let data = image.jpegData(compressionQuality: 0.01)
                 self.sendDBModel.sendProfileImageData(data: data!)
+                //画面遷移
+                self.navigationController?.pushViewController(tabVC, animated: true)
             }
         }
     }

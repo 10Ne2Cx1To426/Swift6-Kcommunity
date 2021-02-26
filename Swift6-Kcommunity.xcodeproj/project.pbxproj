@@ -25,6 +25,8 @@
 		B211A2B925E810C40015F4ED /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B211A2B725E810C40015F4ED /* MessageCell.xib */; };
 		B211A2C125E819590015F4ED /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2C025E819590015F4ED /* RoomViewController.swift */; };
 		B211A2C425E81DFA0015F4ED /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2C325E81DFA0015F4ED /* RoomModel.swift */; };
+		B211A2C725E8726C0015F4ED /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2C625E8726C0015F4ED /* EditViewController.swift */; };
+		B211A2CA25E872950015F4ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B211A2C925E872950015F4ED /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		B211A2B725E810C40015F4ED /* MessageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		B211A2C025E819590015F4ED /* RoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
 		B211A2C325E81DFA0015F4ED /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
+		B211A2C625E8726C0015F4ED /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		B211A2C925E872950015F4ED /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +129,8 @@
 				B211A2AA25E8035F0015F4ED /* TabBarController.swift */,
 				B211A2AD25E804000015F4ED /* ChatViewController.swift */,
 				B211A2C025E819590015F4ED /* RoomViewController.swift */,
+				B211A2C625E8726C0015F4ED /* EditViewController.swift */,
+				B211A2C925E872950015F4ED /* DetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -256,6 +262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B211A2C725E8726C0015F4ED /* EditViewController.swift in Sources */,
 				B211A2B825E810C40015F4ED /* MessageCell.swift in Sources */,
 				B211A26E25E764910015F4ED /* ViewController.swift in Sources */,
 				B211A26A25E764910015F4ED /* AppDelegate.swift in Sources */,
@@ -268,6 +275,7 @@
 				B211A2AB25E8035F0015F4ED /* TabBarController.swift in Sources */,
 				B211A2A125E7F3BD0015F4ED /* RegisterViewController.swift in Sources */,
 				B211A2A525E7F3D70015F4ED /* Permission.swift in Sources */,
+				B211A2CA25E872950015F4ED /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

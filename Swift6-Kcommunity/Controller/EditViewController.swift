@@ -1,5 +1,5 @@
 //
-//  TabBarController.swift
+//  EditViewController.swift
 //  Swift6-Kcommunity
 //
 //  Created by Sena Nishida on 2021/02/26.
@@ -7,16 +7,12 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class EditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
     }
     
 
