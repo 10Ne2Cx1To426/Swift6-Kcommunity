@@ -8,9 +8,15 @@
 import Foundation
 import Firebase
 
+protocol LoadOKDelegate {
+    func loadOK(check:Int)
+}
+
 class LoadModel {
     var datasets = [Dataset]()
     let db = Firestore.firestore()
+    
+    var loadOKDelegate:LoadOKDelegate?
     
     func loadContents(){
         db.collection("events").order(by: "postDate").addSnapshotListener { (snapShot, error) in

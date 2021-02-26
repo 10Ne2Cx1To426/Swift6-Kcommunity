@@ -10,7 +10,8 @@ import Firebase
 import ActiveLabel
 import SDWebImage
 
-class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate {
+class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UINavigationControllerDelegate, LoadOKDelegate {
+    
     
     var loadDBModel = LoadModel()
     
@@ -20,6 +21,12 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        loadDBModel.loadOKDelegate = self
+    }
+    func loadOK(check: Int) {
+        if check == 1{
+            tableView.reloadData()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,7 +40,9 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return loadDBModel.datasets.count
     }
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 420
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let image = cell.contentView.viewWithTag(1) as! UIImageView

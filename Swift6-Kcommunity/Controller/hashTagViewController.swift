@@ -8,7 +8,7 @@
 import UIKit
 import SDWebImage
 
-class hashTagViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class hashTagViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, LoadOKDelegate {
     
     var hashTag = String()
     var loadDBModel = LoadModel()
@@ -21,6 +21,7 @@ class hashTagViewController: UIViewController, UICollectionViewDelegate, UIColle
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
+        loadDBModel.loadOKDelegate = self
         
         self.navigationItem.title = "#\(hashTag)"
     }
@@ -48,7 +49,38 @@ class hashTagViewController: UIViewController, UICollectionViewDelegate, UIColle
         return cell
     }
     
-
+    func loadOK(check: Int) {
+        if check == 1{
+            collectionView.reloadData()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let detailVC = self.storyboard?.instantiateViewController(identifier: "detailVC") as! DetailViewController
+        detailVC.userName = loadDBModel.datasets[indexPath.row].userName
+        detailVC.userImage = loadDBModel.datasets[indexPath.row].userImageString
+        detailVC.eventName = loadDBModel.datasets[indexPath.row].eventName
+        detailVC.eventDate = loadDBModel.datasets[indexPath.row].eventDate
+        detailVC.eventDetail = loadDBModel.datasets[indexPath.row].detailString
+        detailVC.eventImage = loadDBModel.datasets[indexPath.row].image
+        
+        self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.bounds.width/3.0
+        let height = width
+        
+        return CGSize(width: width, height: height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets.zero
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     /*
     // MARK: - Navigation
 

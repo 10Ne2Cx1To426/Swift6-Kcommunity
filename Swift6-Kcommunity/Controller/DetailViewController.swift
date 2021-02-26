@@ -6,13 +6,37 @@
 //
 
 import UIKit
+import SDWebImage
 
 class DetailViewController: UIViewController {
-
+    
+    var userName = String()
+    var eventName = String()
+    var eventDate = String()
+    var eventDetail = String()
+    var userImage = String()
+    var eventImage = String()
+    
+    @IBOutlet weak var contentImageView: UIImageView!
+    @IBOutlet weak var eventNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        userImageView.layer.cornerRadius = 50.0
+        
+        userNameLabel.text = userName
+        contentImageView.sd_setImage(with: URL(string: eventImage), completed: nil)
+        userImageView.sd_setImage(with: URL(string: userImage), completed: nil)
+        eventNameLabel.text = eventName
+        dateLabel.text = eventDate
+        detailLabel.text = eventDetail
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
