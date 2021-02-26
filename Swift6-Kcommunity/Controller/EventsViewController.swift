@@ -24,7 +24,7 @@ class EventsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
-        
+        //firebaseのデータを取り出す
         loadDBModel.loadContents()
     }
     func numberOfSections(in tableView: UITableView) -> Int {
