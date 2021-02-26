@@ -61,6 +61,8 @@ class RegisterViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     @IBAction func tapImageView(_ sender: Any) {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         showAlert()
     }
     func doCamera() {

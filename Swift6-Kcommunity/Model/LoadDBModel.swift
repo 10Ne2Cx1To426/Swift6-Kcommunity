@@ -20,6 +20,7 @@ class LoadModel {
     
     func loadContents(){
         db.collection("events").order(by: "postDate").addSnapshotListener { (snapShot, error) in
+            self.datasets = []
             if error != nil {
                 print(error.debugDescription)
                 return
@@ -38,6 +39,7 @@ class LoadModel {
                         let newDataset = Dataset(userID: userID, userName: userName, userImageString: userImageString, eventName: eventName, eventDate: eventDate, detailString: detailString, image: image, postDate: postDate)
                         self.datasets.append(newDataset)
                         self.datasets.reverse()
+                        self.loadOKDelegate?.loadOK(check: 1)
                     }
                 }
             }
